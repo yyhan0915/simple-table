@@ -26,11 +26,10 @@ export const cumaColor = {
 const cumaTheme = createMuiTheme({
     typography: {
         fontFamily: [
-            'Noto Sans KR',
+            'Roboto',
             '-apple-system',
             'BlinkMacSystemFont',
             'Segoe UI',
-            'Roboto',
             'Oxygen',
             'Ubuntu',
             'Cantarell',
@@ -40,19 +39,10 @@ const cumaTheme = createMuiTheme({
             'sans-serif',
         ].join(','),
     },
-    palette: {
-        primary: {
-            main: cumaColor[500],
-        },
-        secondary: {
-            main: '#FFF',
-        },
-    },
+    palette: {},
     overrides: {
         MuiButton: {
-            root: {
-                borderRadius: 0,
-            },
+            root: {},
         },
     },
     breakpoints: {
