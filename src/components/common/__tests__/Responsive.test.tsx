@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
-import React from 'react';
 import Responsive from '../Responsive';
+import React from 'react';
 
 describe('Responsive changes the text after click', () => {
     it('rendered without Crash', () => {
