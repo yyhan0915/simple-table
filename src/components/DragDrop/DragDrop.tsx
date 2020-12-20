@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 import styled from 'styled-components';
 
 const DragDropBlock = styled.div`
@@ -18,6 +19,7 @@ const DragDropBlock = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 10px;
     }
 `;
 
@@ -27,9 +29,16 @@ interface IProps {
 }
 
 const DragDrop: React.FC<IProps> = ({ title, onChange, ...props }) => {
+    const onDrop = useCallback(acceptedFiles => {
+        // Do something with the files
+        console.log(acceptedFiles);
+    }, []);
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
     return (
         <DragDropBlock>
-            <div className="dragdrop__title" onChange={onChange} {...props}>
+            <div className="dragdrop__title" onChange={onChange} {...props} {...getRootProps()}>
+                <input {...getInputProps()} />
                 {title}
             </div>
         </DragDropBlock>
