@@ -4,7 +4,19 @@ import { changeField } from 'src/store/complain';
 import styled from 'styled-components';
 import Input from '../common/Input';
 
-const InnerTableBlock = styled.div``;
+const InnerTableBlock = styled.div`
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background-color: grey;
+    margin-bottom: 20px;
+
+    .title {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        color: white;
+    }
+`;
 
 interface IProps {
     sample?: string;

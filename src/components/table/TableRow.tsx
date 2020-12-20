@@ -6,7 +6,11 @@ const TableRowBlock = styled.div`
     display: flex;
 
     & + & {
-        border-top: 1px solid black;
+        border-top: 1px solid grey;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
     }
 `;
 
