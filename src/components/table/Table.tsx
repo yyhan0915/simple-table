@@ -1,9 +1,9 @@
 import { Button, FormGroup, makeStyles } from '@material-ui/core';
 import React, { useCallback, useState } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { CheckedLanguageType } from 'src/model/type/CheckedLanguageType';
-import { addComplain } from 'src/store/complain';
 import styled from 'styled-components';
+import { CheckedLanguageType } from '../../model/type/CheckedLanguageType';
+import { addComplain } from '../../store/complain';
 import Checkbox from '../common/CheckBox';
 import ContentCell from '../common/ContentCell';
 import IndexCell from '../common/IndexCell';
@@ -55,13 +55,22 @@ const Table: React.FC<IProps> = () => {
     const classes = useStyles();
     const [isSnackBarOpen, setIsSnackBarOpen] = useState<boolean>(false);
     const [snackBarMessage, setSnackBarMessage] = useState<string>('');
-    const impossibleCondition = checkedLanguages.length > 0;
     const { complain } = useSelector((state: RootState) => state.complain, shallowEqual);
+    const impossibleCondition =
+        checkedLanguages.length > 0 &&
+        complain[0].description &&
+        complain[0].screenshot.desc &&
+        complain[0].screenshot.title &&
+        complain[0].screenshot.file;
     const dispatch = useDispatch();
 
     const onLanguageSelectHandler = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setCheckedState(prev => [
             ...prev.map(element => {
+                if (event.target.name == 'English') {
+                    element.checked == true;
+                    return element;
+                }
                 if (element.language == event.target.name) {
                     element.checked = !element.checked!;
                     return element;
@@ -75,8 +84,9 @@ const Table: React.FC<IProps> = () => {
         dispatch(addComplain());
     }, []);
 
-    const onSubmitHandler = () => {
-        if (impossibleCondition) {
+    const onSubmitHandler = (event: React.FormEvent<EventTarget>) => {
+        event.preventDefault();
+        if (!impossibleCondition) {
             setSnackBarMessage('Filling data is required');
             setIsSnackBarOpen(true);
             return;

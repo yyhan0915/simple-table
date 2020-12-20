@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { changeField } from 'src/store/complain';
+import { changeField } from '../../store/complain';
 import styled from 'styled-components';
 import Input from '../common/Input';
 

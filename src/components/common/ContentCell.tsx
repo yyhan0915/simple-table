@@ -21,7 +21,8 @@ const ContentCellBlock = styled.div<{ hasColumn?: boolean }>`
         background-color: grey;
         display: flex;
         justify-content: flex-end;
-        padding-right: 5px;
+        padding-right: 10px;
+        padding-bottom: 10px;
         height: 40px;
         align-items: center;
         margin-bottom: 10px;

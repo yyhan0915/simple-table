@@ -1,7 +1,7 @@
 import { Button, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
-import { CheckedLanguageType } from 'src/model/type/CheckedLanguageType';
 import styled from 'styled-components';
+import { CheckedLanguageType } from '../../model/type/CheckedLanguageType';
 
 const TabBlock = styled.div`
     display: flex;
@@ -10,10 +10,12 @@ const TabBlock = styled.div`
 const useStyles = makeStyles(() => ({
     button: {
         backgroundColor: '#eaeaea',
+        borderRadius: '3px 3px 0px 0px',
     },
     selected: {
         backgroundColor: '#3498db',
         color: 'white',
+        borderRadius: '3px 3px 0px 0px',
 
         '&:hover': {
             backgroundColor: '#3498db',
