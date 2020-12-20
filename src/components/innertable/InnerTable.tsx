@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useTranslation } from '../../i18n';
 import { changeField } from '../../store/complain';
 import Input from '../common/Input';
+import DragDrop from '../DragDrop/DragDrop';
 
 const InnerTableBlock = styled.div`
     padding: 10px;
@@ -16,7 +17,7 @@ const InnerTableBlock = styled.div`
         border-top: 1px solid #969696;
     }
 
-    .title {
+    .inner-table__title {
         margin-bottom: 10px;
         margin-top: 10px;
         color: white;
@@ -41,7 +42,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
     return (
         <InnerTableBlock>
             <div className="description">
-                <div className="title">description *</div>
+                <div className="inner-table__title">description *</div>
                 <Input
                     name="description"
                     placeholder={`${t('description')}`}
@@ -51,7 +52,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                 />
             </div>
             <div className="screenshot">
-                <div className="title">screenshot *</div>
+                <div className="inner-table__title">screenshot *</div>
                 <Input
                     placeholder={`${t('title')}`}
                     maxLength={30}
@@ -68,13 +69,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     value={relevantComplain?.screenshot.desc}
                     required
                 />
-                <Input
-                    placeholder={`${t('dragAndDrop')}`}
-                    name="file"
-                    onChange={onContentsChangeHandler}
-                    value={relevantComplain?.screenshot.file}
-                    required
-                />
+                <DragDrop title={`${t('dragAndDrop')}`} onChange={onContentsChangeHandler} />
             </div>
         </InnerTableBlock>
     );

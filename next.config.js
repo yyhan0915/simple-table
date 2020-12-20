@@ -2,9 +2,9 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
-const { nextI18NextRewrites } = require('next-i18next/rewrites')
+const { nextI18NextRewrites } = require('next-i18next/rewrites');
 
-const localeSubpaths = {};
+const localeSubpaths = { ko: 'ko', en: 'en', jp: 'jp', in: 'in', cn: 'cn' };
 
 module.exports = withBundleAnalyzer({
     rewrites: async () => nextI18NextRewrites(localeSubpaths),

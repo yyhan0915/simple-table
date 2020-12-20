@@ -8,8 +8,8 @@ import Checkbox from '../common/CheckBox';
 import ContentCell from '../common/ContentCell';
 import IndexCell from '../common/IndexCell';
 import SnackBar from '../common/SnackBar';
-import InnerTable from '../innertable/InnerTable';
-import Tab from '../innertable/Tab';
+import InnerTable from '../InnerTable/InnerTable';
+import Tab from '../InnerTable/Tab';
 import TableRow from './TableRow';
 
 const TableBlock = styled.form`
@@ -17,6 +17,7 @@ const TableBlock = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 30px;
 `;
 
 interface IProps {

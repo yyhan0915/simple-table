@@ -9,7 +9,7 @@ const TableRowBlock = styled.div<{ hasColumn?: boolean }>`
         border-top: 1px solid grey;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         flex-direction: column;
     }
 

@@ -5,6 +5,7 @@ const ContentCellBlock = styled.div<{ hasColumn?: boolean }>`
     display: flex;
     justify-content: center;
     padding: 10px;
+    width: 100%;
 
     ${props =>
         props.hasColumn &&

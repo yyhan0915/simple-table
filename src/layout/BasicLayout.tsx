@@ -15,7 +15,7 @@ interface BasicLayoutIndexProps {
 }
 
 const BasicLayoutIndexBlock = styled.div<BasicLayoutIndexProps>`
-    background: ${props => props.backgroundColor || '#FFF'};
+    background: ${props => props.backgroundColor || '#f8f8f8'};
     width: 100%;
     min-height: 100vh;
 `;
@@ -23,7 +23,7 @@ const BasicLayoutIndexBlock = styled.div<BasicLayoutIndexProps>`
 const BasicLayoutIndex: React.FC<BasicLayoutIndexProps> = ({
     children,
     backgroundColor,
-    title = 'Web Application',
+    title = 'Game Complain Board',
 }) => {
     return (
         <>

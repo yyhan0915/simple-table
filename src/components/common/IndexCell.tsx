@@ -10,7 +10,7 @@ const IndexCellBlock = styled.div`
     border-right: 1px solid grey;
     background-color: #eaeaea;
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
         min-width: 100%;
         max-width: 100%;
         border-right: none;
