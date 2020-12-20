@@ -6,6 +6,8 @@ const IndexCellBlock = styled.div`
     justify-content: center;
     align-items: center;
     width: 200px;
+    border: 1px solid black;
+    background-color: #eaeaea;
 `;
 
 interface IProps {

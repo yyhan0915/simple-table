@@ -6,19 +6,17 @@ const CheckBoxBlock = styled.div``;
 
 interface IProps {
     checked: boolean;
-    handleChange: () => void;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     name: string;
 }
 
 const CheckBox: React.FC<IProps> = ({ checked, handleChange, name }) => {
     return (
-        <CheckBoxBlock>
-            <FormControlLabel
-                control={<Checkbox checked={checked} onChange={handleChange} name={name} color="primary" />}
-                label={name}
-            />
-        </CheckBoxBlock>
+        <FormControlLabel
+            control={<Checkbox checked={checked} onChange={handleChange} name={name} color="primary" />}
+            label={name}
+        />
     );
 };
 
-export default CheckBox;
+export default React.memo(CheckBox);
