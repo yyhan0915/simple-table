@@ -1,4 +1,4 @@
-import { Checkbox } from '@material-ui/core';
+import Checkbox from './common/CheckBox';
 import React from 'react';
 import styled from 'styled-components';
 import ContentCell from './common/ContentCell';
