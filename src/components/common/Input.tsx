@@ -45,6 +45,7 @@ interface InputProps {
     className?: string;
     inputMode?: 'text' | 'none' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
     disabled?: boolean;
+    id?: any;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -60,6 +61,7 @@ const Input: React.FC<InputProps> = ({
     style,
     maxLength,
     inputMode,
+    id,
 }) => {
     const classes = useStyles();
 
@@ -85,6 +87,7 @@ const Input: React.FC<InputProps> = ({
             style={style}
             inputProps={{ maxLength, inputMode }}
             disabled={disabled}
+            id={id}
         />
     );
 };

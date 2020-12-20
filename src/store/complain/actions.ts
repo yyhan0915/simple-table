@@ -1,5 +1,5 @@
-import { createAction } from 'typesafe-actions';
-import { CHANGE_FIELD } from './constants';
+import { createAction, ActionType } from 'typesafe-actions';
+import { ADD_COMPLAIN, CHANGE_FIELD } from './constants';
 
 export const changeField = createAction(
     CHANGE_FIELD,
@@ -10,4 +10,8 @@ export const changeField = createAction(
     }),
 )();
 
-export type ComplainAction = ReturnType<typeof changeField>;
+export const addComplain = createAction(ADD_COMPLAIN)();
+
+const actions = { changeField, addComplain };
+
+export type ComplainAction = ActionType<typeof actions>;

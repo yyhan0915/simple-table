@@ -8,7 +8,7 @@
  */
 
 export type ComplainType = {
-    id: number | null;
+    id: number;
     description: string;
     screenshot: { title: string; desc: string; file: string };
 };

@@ -1,11 +1,13 @@
 import { Button, FormGroup } from '@material-ui/core';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { addComplain } from 'src/store/complain';
 import styled from 'styled-components';
 import Checkbox from '../common/CheckBox';
 import ContentCell from '../common/ContentCell';
 import IndexCell from '../common/IndexCell';
+import InnerTable from '../innertable/InnerTable';
 import TableRow from './TableRow';
-import Input from '../common/Input';
 
 const TableBlock = styled.div`
     border: 1px solid black;
@@ -23,8 +25,10 @@ const Table: React.FC<IProps> = () => {
         { language: 'Japanese', checked: false },
         { language: 'Chinese', checked: false },
     ]);
+    const { complain } = useSelector((state: RootState) => state.complain, shallowEqual);
+    const dispatch = useDispatch();
 
-    const onChangeHandler = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const onLanguageSelectHandler = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
         setCheckedState(prev => [
             ...prev.map(element => {
                 if (element.language == event.target.name) {
@@ -36,6 +40,10 @@ const Table: React.FC<IProps> = () => {
         ]);
     }, []);
 
+    const onAddComplainFormHandler = () => {
+        dispatch(addComplain());
+    };
+
     return (
         <TableBlock>
             <TableRow>
@@ -46,7 +54,8 @@ const Table: React.FC<IProps> = () => {
                             <Checkbox
                                 name={element.language}
                                 checked={element.checked}
-                                handleChange={onChangeHandler}
+                                handleChange={onLanguageSelectHandler}
+                                key={element.language}
                             />
                         ))}
                     </FormGroup>
@@ -55,20 +64,13 @@ const Table: React.FC<IProps> = () => {
             <TableRow>
                 <IndexCell title="contents *" />
                 <ContentCell hasColumn>
-                    <div className="description">
-                        <div className="title">description *</div>
-                        <Input />
-                    </div>
-                    <div className="screenshot">
-                        <div className="title">screenshot *</div>
-                        <Input placeholder="(Max 30 words) Title of each screenshot" maxLength={30} />
-                        <Input placeholder="(Max 300 words) Description of each screenshot" maxLength={300} />
-                        <Input placeholder="Drag & drop image file here, or click to select file" />
-                    </div>
-                    <Button color="primary" variant="contained">
-                        Add
-                    </Button>
+                    {complain.map(element => (
+                        <InnerTable complainId={element.id} />
+                    ))}
                 </ContentCell>
+                <Button color="primary" variant="contained" onClick={onAddComplainFormHandler}>
+                    Add
+                </Button>
             </TableRow>
         </TableBlock>
     );

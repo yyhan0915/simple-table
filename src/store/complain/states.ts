@@ -5,5 +5,5 @@ export type InitialStateType = {
 };
 
 export const initialState: InitialStateType = {
-    complain: [{ id: null, description: '', screenshot: { title: '', desc: '', file: '' } }],
+    complain: [{ id: 0, description: '', screenshot: { title: '', desc: '', file: '' } }],
 };
