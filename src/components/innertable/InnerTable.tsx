@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { useTranslation, withTranslation } from '../../i18n';
+import { useTranslation } from '../../i18n';
 import { changeField } from '../../store/complain';
 import Input from '../common/Input';
 

@@ -34,7 +34,7 @@ interface IProps {
 const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
     const classes = useStyles();
     const [selected, setSelected] = useState<boolean[]>(new Array(5).fill(false));
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     const onSelectHandler = (index: number, language: string) => {
         setSelected([
