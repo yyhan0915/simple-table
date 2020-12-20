@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { useStore } from '../store/store';
 import '../styles/global.css';
 import materialTheme from '../styles/theme/materialTheme';
+import { appWithTranslation } from '../i18n';
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
     const store = useStore(pageProps.initialReduxState);
@@ -28,4 +29,4 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
     );
 };
 
-export default App;
+export default appWithTranslation(App);

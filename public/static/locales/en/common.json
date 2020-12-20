@@ -1,0 +1,6 @@
+{
+    "description": "(Max 250 words) Game description at the top of the game details page",
+    "title": "(Max 30 words) Title of each screenshot",
+    "desc": "(Max 300 words) Description of each screenshot",
+    "dragAndDrop": "Drag & drop image file here, or click to select file"
+}

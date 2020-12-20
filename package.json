@@ -19,9 +19,13 @@
     },
     "dependencies": {
         "@material-ui/core": "^4.11.2",
+        "i18next": "^19.8.4",
+        "i18next-icu": "^1.4.2",
         "next": "latest",
+        "next-i18next": "^7.0.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
+        "react-i18next": "^11.8.4",
         "react-redux": "^7.2.2",
         "redux": "^4.0.5",
         "redux-devtools-extension": "^2.13.8",

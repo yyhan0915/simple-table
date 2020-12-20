@@ -1,6 +1,9 @@
 import { Button, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { findValueByKey } from '../../function/findValueBykey';
+import { useTranslation } from '../../i18n';
+import { LanguageLocale } from '../../model/enum/LanguageLocale';
 import { CheckedLanguageType } from '../../model/type/CheckedLanguageType';
 
 const TabBlock = styled.div`
@@ -31,8 +34,9 @@ interface IProps {
 const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
     const classes = useStyles();
     const [selected, setSelected] = useState<boolean[]>(new Array(5).fill(false));
+    const { t, i18n } = useTranslation();
 
-    const onSelectHandler = (index: number) => {
+    const onSelectHandler = (index: number, language: string) => {
         setSelected([
             ...selected.map((_, selectedArrIndex) => {
                 if (selectedArrIndex == index) {
@@ -41,6 +45,7 @@ const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
                 return false;
             }),
         ]);
+        i18n.changeLanguage(findValueByKey(language.toUpperCase(), LanguageLocale));
     };
 
     return (
@@ -51,8 +56,9 @@ const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
                         className={classes.selected}
                         key={index + element.language + element.checked}
                         onClick={() => {
-                            onSelectHandler(index);
+                            onSelectHandler(index, element.language);
                         }}
+                        name={element.language}
                     >
                         {element.language}
                     </Button>
@@ -61,8 +67,9 @@ const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
                         className={classes.button}
                         key={index + element.language + element.checked}
                         onClick={() => {
-                            onSelectHandler(index);
+                            onSelectHandler(index, element.language);
                         }}
+                        name={element.language}
                     >
                         {element.language}
                     </Button>

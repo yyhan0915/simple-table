@@ -9,4 +9,8 @@ const IndexPage: NextPage = () => (
     </BasicLayoutIndex>
 );
 
+IndexPage.getInitialProps = async () => ({
+    namespacesRequired: ['common'],
+});
+
 export default IndexPage;
