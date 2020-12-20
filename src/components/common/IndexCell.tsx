@@ -9,17 +9,11 @@ const IndexCellBlock = styled.div`
     width: 200px;
 `;
 
-const useStyles = makeStyles(theme => ({
-    sample: {},
-}));
-
 interface IProps {
     title: string;
 }
 
 const IndexCell: React.FC<IProps> = ({ title }) => {
-    const classes = useStyles();
-
     return <IndexCellBlock>{title}</IndexCellBlock>;
 };
 

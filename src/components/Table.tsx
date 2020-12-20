@@ -7,17 +7,11 @@ import TableRow from './common/TableRow';
 
 const TableBlock = styled.div``;
 
-const useStyles = makeStyles(theme => ({
-    sample: {},
-}));
-
 interface IProps {
     sample?: string;
 }
 
 const Table: React.FC<IProps> = () => {
-    const classes = useStyles();
-
     return (
         <TableBlock>
             <TableRow>

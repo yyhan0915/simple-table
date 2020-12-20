@@ -6,17 +6,11 @@ const ContentCellBlock = styled.div`
     display: flex;
 `;
 
-const useStyles = makeStyles(theme => ({
-    sample: {},
-}));
-
 interface IProps {
     sample?: string;
 }
 
 const ContentCell: React.FC<IProps> = ({ children }) => {
-    const classes = useStyles();
-
     return <ContentCellBlock>{children}</ContentCellBlock>;
 };
 
