@@ -4,7 +4,7 @@ import { CHANGE_FIELD, ADD_COMPLAIN } from './constants';
 import { initialState, InitialStateType } from './states';
 
 const complain = createReducer<InitialStateType, ComplainAction>(initialState, {
-    [ADD_COMPLAIN]: (state, action) => ({
+    [ADD_COMPLAIN]: state => ({
         ...state,
         complain: [
             ...state.complain,

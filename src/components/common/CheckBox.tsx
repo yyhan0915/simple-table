@@ -1,8 +1,5 @@
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 import React from 'react';
-import styled from 'styled-components';
-
-const CheckBoxBlock = styled.div``;
 
 interface IProps {
     checked: boolean;

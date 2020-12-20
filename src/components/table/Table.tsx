@@ -23,7 +23,7 @@ interface IProps {
     sample?: string;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     button: {
         backgroundColor: '#3498db',
         color: 'white',

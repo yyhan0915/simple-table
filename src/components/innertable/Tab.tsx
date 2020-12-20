@@ -1,5 +1,5 @@
 import { Button, makeStyles } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CheckedLanguageType } from 'src/model/type/CheckedLanguageType';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ const TabBlock = styled.div`
     display: flex;
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     button: {
         backgroundColor: '#eaeaea',
     },
@@ -32,7 +32,7 @@ const Tab: React.FC<IProps> = ({ checkedLanguages }) => {
 
     const onSelectHandler = (index: number) => {
         setSelected([
-            ...selected.map((element, selectedArrIndex) => {
+            ...selected.map((_, selectedArrIndex) => {
                 if (selectedArrIndex == index) {
                     return true;
                 }

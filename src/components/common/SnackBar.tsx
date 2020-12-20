@@ -8,7 +8,7 @@ interface SnackBarProps {
     handle: () => void;
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     root: {
         '& > .MuiSnackbarContent-root': {
             display: 'flex',
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 const SnackBar: React.FC<SnackBarProps> = ({ isOpen, message, autoHideDuration = 2000, handle }) => {
     const classes = useStyles();
 
-    const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+    const handleClose = (_: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
         if (reason === 'clickaway') {
             return;
         }
