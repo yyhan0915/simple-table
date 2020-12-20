@@ -1,22 +1,12 @@
-import { Button } from '@material-ui/core';
 import { NextPage } from 'next';
-import Link from 'next/link';
 import React from 'react';
+import Table from '../components/Table';
+import BasicLayoutIndex from '../layout/BasicLayout';
 
 const IndexPage: NextPage = () => (
-    <>
-        <h1>Hello Next.js </h1>
-        <p>
-            <Link href="/about">
-                <Button variant="contained" color="primary">
-                    Primary
-                </Button>
-            </Link>
-        </p>
-        <Button variant="contained" color="secondary">
-            Primary
-        </Button>
-    </>
+    <BasicLayoutIndex>
+        <Table />
+    </BasicLayoutIndex>
 );
 
 export default IndexPage;
