@@ -4,6 +4,10 @@ import styled from 'styled-components';
 const TableRowBlock = styled.div`
     width: 100%;
     display: flex;
+
+    & + & {
+        border-top: 1px solid black;
+    }
 `;
 
 interface IProps {

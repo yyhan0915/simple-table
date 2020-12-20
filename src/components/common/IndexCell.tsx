@@ -5,8 +5,9 @@ const IndexCellBlock = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    border: 1px solid black;
+    min-width: 200px;
+    max-width: 200px;
+    border-right: 1px solid black;
     background-color: #eaeaea;
 `;
 

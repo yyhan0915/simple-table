@@ -1,12 +1,15 @@
-import Checkbox from '../common/CheckBox';
+import { Button, FormGroup } from '@material-ui/core';
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
+import Checkbox from '../common/CheckBox';
 import ContentCell from '../common/ContentCell';
 import IndexCell from '../common/IndexCell';
 import TableRow from './TableRow';
-import { FormGroup } from '@material-ui/core';
+import Input from '../common/Input';
 
-const TableBlock = styled.div``;
+const TableBlock = styled.div`
+    border: 1px solid black;
+`;
 
 interface IProps {
     sample?: string;
@@ -51,7 +54,21 @@ const Table: React.FC<IProps> = () => {
             </TableRow>
             <TableRow>
                 <IndexCell title="contents *" />
-                <ContentCell>Sample Table</ContentCell>
+                <ContentCell hasColumn>
+                    <div className="description">
+                        <div className="title">description *</div>
+                        <Input />
+                    </div>
+                    <div className="screenshot">
+                        <div className="title">screenshot *</div>
+                        <Input placeholder="(Max 30 words) Title of each screenshot" maxLength={30} />
+                        <Input placeholder="(Max 300 words) Description of each screenshot" maxLength={300} />
+                        <Input placeholder="Drag & drop image file here, or click to select file" />
+                    </div>
+                    <Button color="primary" variant="contained">
+                        Add
+                    </Button>
+                </ContentCell>
             </TableRow>
         </TableBlock>
     );
