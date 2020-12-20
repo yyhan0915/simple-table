@@ -9,7 +9,11 @@ const InnerTableBlock = styled.div`
     width: 100%;
     height: auto;
     background-color: grey;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+    & + & {
+        border-top: 1px solid #969696;
+    }
 
     .title {
         margin-bottom: 10px;
@@ -36,7 +40,13 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
         <InnerTableBlock>
             <div className="description">
                 <div className="title">description *</div>
-                <Input name="description" onChange={onContentsChangeHandler} value={relevantComplain?.description} />
+                <Input
+                    name="description"
+                    placeholder="(Max 250 words) Game description at the top of the game details page"
+                    onChange={onContentsChangeHandler}
+                    value={relevantComplain?.description}
+                    required
+                />
             </div>
             <div className="screenshot">
                 <div className="title">screenshot *</div>
@@ -46,6 +56,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     name="title"
                     onChange={onContentsChangeHandler}
                     value={relevantComplain?.screenshot.title}
+                    required
                 />
                 <Input
                     placeholder="(Max 300 words) Description of each screenshot"
@@ -53,12 +64,14 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     name="desc"
                     onChange={onContentsChangeHandler}
                     value={relevantComplain?.screenshot.desc}
+                    required
                 />
                 <Input
                     placeholder="Drag & drop image file here, or click to select file"
                     name="file"
                     onChange={onContentsChangeHandler}
                     value={relevantComplain?.screenshot.file}
+                    required
                 />
             </div>
         </InnerTableBlock>

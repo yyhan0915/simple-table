@@ -11,6 +11,21 @@ const ContentCellBlock = styled.div<{ hasColumn?: boolean }>`
         css`
             flex-direction: column;
         `}
+
+    .button-row {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .add-button-row {
+        background-color: grey;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 5px;
+        height: 40px;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 `;
 
 interface IProps {

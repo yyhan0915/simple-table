@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const TableRowBlock = styled.div`
+const TableRowBlock = styled.div<{ hasColumn?: boolean }>`
     width: 100%;
     display: flex;
 
@@ -12,14 +12,21 @@ const TableRowBlock = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
     }
+
+    ${props =>
+        props.hasColumn &&
+        css`
+            flex-direction: column;
+        `}
 `;
 
 interface IProps {
     sample?: string;
+    hasColumn?: boolean;
 }
 
-const TableRow: React.FC<IProps> = ({ children }) => {
-    return <TableRowBlock>{children}</TableRowBlock>;
+const TableRow: React.FC<IProps> = ({ children, hasColumn }) => {
+    return <TableRowBlock hasColumn={hasColumn}>{children}</TableRowBlock>;
 };
 
 export default TableRow;
