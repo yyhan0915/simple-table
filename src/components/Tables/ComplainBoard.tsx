@@ -7,8 +7,8 @@ import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 import ContentCell from '../common/Cell/ContentCell';
 import IndexCell from '../common/Cell/IndexCell';
-import InnerTable from '../InnerTable/InnerTable';
-import Tab from '../InnerTable/Tab';
+import InnerTable from '../InnerTables/InnerTable';
+import Tab from '../InnerTables/Tab';
 import TableRow from './TableRow';
 
 const ComplainBoardBlock = styled(TableRow)``;
