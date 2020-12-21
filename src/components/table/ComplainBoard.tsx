@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { CheckedLanguageType } from 'src/model/type/CheckedLanguageType';
 import { addComplain } from 'src/store/complain';
+import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 import ContentCell from '../common/Cell/ContentCell';
 import IndexCell from '../common/Cell/IndexCell';
@@ -38,7 +39,7 @@ const useStyles = makeStyles(() => ({
 
 const ComplainBoard: React.FC<IProps> = ({ checkedLanguages }) => {
     const classes = useStyles();
-    const { complain } = useSelector((state: RootState) => state.complain, shallowEqual);
+    const complain = useSelector(complainState, shallowEqual);
     const dispatch = useDispatch();
 
     const onAddComplainFormHandler = useCallback(() => {
@@ -50,8 +51,8 @@ const ComplainBoard: React.FC<IProps> = ({ checkedLanguages }) => {
             <IndexCell title="contents *" />
             <ContentCell hasColumn>
                 <Tab checkedLanguages={checkedLanguages} />
-                {complain.map(element => (
-                    <InnerTable complainId={element.id} key={element.id} />
+                {complain.map((element, index) => (
+                    <InnerTable complainId={element.id} key={index} />
                 ))}
                 <div className="add-button-row">
                     <Button className={classes.addButton} variant="contained" onClick={onAddComplainFormHandler}>

@@ -1,9 +1,3 @@
-/**
- * @title Layout props
- * @param  backgroundColor : 화면의 배경색상을 정할 수 있다,
- * @param title : 문서의 제목을 정할 수 있다. SEO
- */
-
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
@@ -20,6 +14,11 @@ const BasicLayoutIndexBlock = styled.div<BasicLayoutIndexProps>`
     min-height: 100vh;
 `;
 
+/**
+ * @title Layout props
+ * @param  backgroundColor : 화면의 배경색상을 정할 수 있다,
+ * @param title : 문서의 제목을 정할 수 있다. SEO
+ */
 const BasicLayoutIndex: React.FC<BasicLayoutIndexProps> = ({
     children,
     backgroundColor,

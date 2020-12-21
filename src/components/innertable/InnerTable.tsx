@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 import { useTranslation } from '../../i18n';
 import { changeField } from '../../store/complain';
@@ -31,7 +32,7 @@ interface IProps {
 
 const InnerTable: React.FC<IProps> = ({ complainId }) => {
     const dispatch = useDispatch();
-    const { complain } = useSelector((state: RootState) => state.complain, shallowEqual);
+    const complain = useSelector(complainState);
     const relevantComplain = complain.find(element => element.id == complainId);
     const { t } = useTranslation();
 
@@ -75,4 +76,4 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
     );
 };
 
-export default InnerTable;
+export default React.memo(InnerTable);

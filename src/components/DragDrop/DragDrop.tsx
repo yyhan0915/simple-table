@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField } from 'src/store/complain';
+import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 
 const DragDropBlock = styled.div`
@@ -38,7 +39,7 @@ const DragDrop: React.FC<IProps> = ({ title, onChange, complainId, ...props }) =
         console.log(acceptedFiles);
         dispatch(changeField({ id: complainId, key: 'file', value: acceptedFiles[0].path }));
     }, []);
-    const { complain } = useSelector((state: RootState) => state.complain);
+    const complain = useSelector(complainState);
     const relevantComplain = complain.find(element => element.id == complainId);
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
