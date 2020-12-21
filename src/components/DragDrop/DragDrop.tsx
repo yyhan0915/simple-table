@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeField } from 'src/store/complain';
 import styled from 'styled-components';
 
 const DragDropBlock = styled.div`
@@ -26,20 +28,26 @@ const DragDropBlock = styled.div`
 interface IProps {
     title: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    complainId: number;
 }
 
-const DragDrop: React.FC<IProps> = ({ title, onChange, ...props }) => {
+const DragDrop: React.FC<IProps> = ({ title, onChange, complainId, ...props }) => {
+    const dispatch = useDispatch();
     const onDrop = useCallback(acceptedFiles => {
-        // Do something with the files
+        // Do somethings when drag & drop
         console.log(acceptedFiles);
+        dispatch(changeField({ id: complainId, key: 'file', value: acceptedFiles[0].path }));
     }, []);
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    const { complain } = useSelector((state: RootState) => state.complain);
+    const relevantComplain = complain.find(element => element.id == complainId);
+
+    const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     return (
         <DragDropBlock>
             <div className="dragdrop__title" onChange={onChange} {...props} {...getRootProps()}>
                 <input {...getInputProps()} />
-                {title}
+                {relevantComplain?.screenshot.file ? relevantComplain.screenshot.file : title}
             </div>
         </DragDropBlock>
     );

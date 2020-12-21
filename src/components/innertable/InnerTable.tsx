@@ -69,7 +69,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     value={relevantComplain?.screenshot.desc}
                     required
                 />
-                <DragDrop title={`${t('dragAndDrop')}`} onChange={onContentsChangeHandler} />
+                <DragDrop title={`${t('dragAndDrop')}`} onChange={onContentsChangeHandler} complainId={complainId} />
             </div>
         </InnerTableBlock>
     );
