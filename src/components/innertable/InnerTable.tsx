@@ -1,7 +1,6 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ComplainType } from 'src/model/type/ComplainType';
-import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 import { useTranslation } from '../../i18n';
 import { changeField } from '../../store/complain';
