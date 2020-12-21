@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ContentCell from '../common/Cell/ContentCell';
 import IndexCell from '../common/Cell/IndexCell';
 import CheckBox from '../common/CheckBox';
-import TableRow from '../Table/TableRow';
+import TableRow from './TableRow';
 
 const SelectLanguageBlock = styled(TableRow)``;
 
