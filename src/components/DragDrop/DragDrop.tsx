@@ -12,8 +12,8 @@ const DragDropBlock = styled.div`
     border: 1px solid grey;
 
     .dragdrop__title {
-        font-size: 1rem;
-        color: grey;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.3);
         width: 100%;
         height: 100%;
         display: flex;
