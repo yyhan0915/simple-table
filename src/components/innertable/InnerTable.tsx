@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ComplainType } from 'src/model/type/ComplainType';
 import { complainState } from 'src/store/complain/selector';
 import styled from 'styled-components';
 import { useTranslation } from '../../i18n';
@@ -27,17 +28,15 @@ const InnerTableBlock = styled.div`
 
 interface IProps {
     sample?: string;
-    complainId: number;
+    complain: ComplainType;
 }
 
-const InnerTable: React.FC<IProps> = ({ complainId }) => {
+const InnerTable: React.FC<IProps> = ({ complain }) => {
     const dispatch = useDispatch();
-    const complain = useSelector(complainState);
-    const relevantComplain = complain.find(element => element.id == complainId);
     const { t } = useTranslation();
 
     const onContentsChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch(changeField({ id: complainId, key: event.target.name, value: event.target.value }));
+        dispatch(changeField({ id: complain.id, key: event.target.name, value: event.target.value }));
     };
 
     return (
@@ -48,7 +47,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     name="description"
                     placeholder={`${t('description')}`}
                     onChange={onContentsChangeHandler}
-                    value={relevantComplain?.description}
+                    value={complain?.description}
                     required
                 />
             </div>
@@ -59,7 +58,7 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     maxLength={30}
                     name="title"
                     onChange={onContentsChangeHandler}
-                    value={relevantComplain?.screenshot.title}
+                    value={complain?.screenshot.title}
                     required
                 />
                 <Input
@@ -67,10 +66,10 @@ const InnerTable: React.FC<IProps> = ({ complainId }) => {
                     maxLength={300}
                     name="desc"
                     onChange={onContentsChangeHandler}
-                    value={relevantComplain?.screenshot.desc}
+                    value={complain?.screenshot.desc}
                     required
                 />
-                <DragDrop title={`${t('dragAndDrop')}`} onChange={onContentsChangeHandler} complainId={complainId} />
+                <DragDrop title={`${t('dragAndDrop')}`} onChange={onContentsChangeHandler} complainId={complain.id} />
             </div>
         </InnerTableBlock>
     );

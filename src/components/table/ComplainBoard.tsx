@@ -52,7 +52,7 @@ const ComplainBoard: React.FC<IProps> = ({ checkedLanguages }) => {
             <ContentCell hasColumn>
                 <Tab checkedLanguages={checkedLanguages} />
                 {complain.map((element, index) => (
-                    <InnerTable complainId={element.id} key={index} />
+                    <InnerTable key={index} complain={element} />
                 ))}
                 <div className="add-button-row">
                     <Button className={classes.addButton} variant="contained" onClick={onAddComplainFormHandler}>
